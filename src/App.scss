@@ -1,0 +1,28 @@
+html { 
+    background: url('./Pics/mobileTakeAway.jpeg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .landing {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100vh;
+  }
+
+  .form-wrapper {
+      height: 100vh;
+  }
+
+  @media (min-width: 600px) {
+    html { 
+        background: url('./Pics/takeaway.png') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+}
