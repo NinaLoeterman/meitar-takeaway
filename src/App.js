@@ -3,17 +3,19 @@ import "./App.scss";
 import MdArrowDropdown from "react-ionicons/lib/MdArrowDropdown";
 import Form from "./Components/Form/Form.jsx";
 
-const text = {
-  order: "להזמין",
-};
-
-let mobile = typeof window.orientation !== "undefined" || navigator.userAgent.indexOf("IEMobile") !== -1;
+let mobile =
+  typeof window.orientation !== "undefined" ||
+  navigator.userAgent.indexOf("IEMobile") !== -1;
 
 function App() {
-  const [appear, setAppear] = useState(true);
+  const [itemOpacity, setItemOpacity] = useState(1);
 
   const disapear = () => {
-      setAppear(false);
+    const newOpacity =
+      (document.body.offsetHeight - (window.scrollY*4)) /
+      document.body.offsetHeight;
+
+    setItemOpacity(newOpacity.toFixed(2));
   };
 
   useEffect(() => {
@@ -23,11 +25,7 @@ function App() {
   return (
     <>
       <div onScroll={disapear} className="landing">
-        <MdArrowDropdown
-          fontSize={!appear ? "0px" : "130px"}
-          color="white"
-          beat={true}
-        />
+        <MdArrowDropdown style={{opacity: itemOpacity}} className="scrollDown" fontSize={"130px"} color="white" />
       </div>
       <div className="form-wrapper">
         <Form />

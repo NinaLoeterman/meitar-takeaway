@@ -36,8 +36,8 @@ form {
 .Form_menu_item {
     height: 100px;
     width: 100%;
-    // background-color: white;
     display: flex;
+    margin-bottom: 16px;
 }
 .Form_menu_label {
     color: black;
@@ -65,4 +65,5 @@ form {
 }
 .Form_item_title {
     padding: 8px;
+    width: 60px;
 }

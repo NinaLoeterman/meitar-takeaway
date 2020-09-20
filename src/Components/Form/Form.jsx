@@ -1,11 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "./Form.scss";
+import Course from "./Course";
 
 const text = {
-  fullName: 'שם מלא',
-  phoneNumber: 'מס. טלפון',
-  placeOrder: 'הזמינו',
+  fullName: "שם מלא",
+  phoneNumber: "מס. טלפון",
+  placeOrder: "הזמינו",
   firstCourse: {
     title: "ראשונה",
     firstOption: "גריד - ״בוקר״ מתוך פר גינט",
@@ -14,82 +15,72 @@ const text = {
   },
   mainCourse: {
     title: "עיקרית",
-    firstOption: "",
-    secondOption: "",
-    thirdOption: "",
+    firstOption: "דביסי - ״סירינקס״",
+    secondOption: "״סטרוונסקי - קטע לקלרינט סולו״",
+    thirdOption: "״באך - אריה על מיתר סול״",
   },
   dessert: {
     title: "קינוח",
-    firstOption: "",
-    secondOption: "",
-    thirdOption: "",
+    firstOption: "״בראש השנה״",
+    secondOption: "״שנה טובה״",
   },
 };
 
-export default function App() {
+const Form = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => console.log(data);
 
-  console.log(watch("example")); // watch input value by passing the name of it
+  // console.log(watch("example")); // watch input value by passing the name of it
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <h1 className="form-title">{text.placeOrder}</h1>
-      <input
-        className="Form_general_info"
-        name="fullName"
-        placeholder={text.fullName}
-        ref={register}
-      />
-      <input
-        className="Form_general_info"
-        type="tel"
-        placeholder={text.phoneNumber}
-        name="mobileNumber"
-        ref={register({
-          required: true,
-          minLength: 9,
-          maxLength: 13,
-          pattern: /^[0]\d{1,2}-?\d{3}-?\d{4}$/,
-        })}
-      />
-      {errors.mobileNumber && <span>Enter a valid phone number</span>}
-      <div className="Form_menu_item">
-        <label className="Form_menu_label">
-          <span className="Form_item_title">{text.firstCourse.title}</span>
-        </label>
-        <div className="Form_menu_options">
-          <div className="Form_course_wrapper">
-            <input
-              name="firstCourse"
-              type="radio"
-              value="No"
-              ref={register({ required: true })}
-              />
-              <label>{text.firstCourse.firstOption}</label>
-          </div>
-          <div className="Form_course_wrapper">
-            <input
-              name="firstCourse"
-              type="radio"
-              value="No"
-              ref={register({ required: true })}
-              />
-              <label>{text.firstCourse.secondOption}</label>
-          </div>
-          <div className="Form_course_wrapper">
-            <input
-              name="firstCourse"
-              type="radio"
-              value="No"
-              ref={register({ required: true })}
-              />
-              <label>{text.firstCourse.thirdOption}</label>
-          </div>
-        </div>
-      </div>
+  return ( <form onSubmit={handleSubmit(onSubmit)}>
+  <h1 className="form-title">{text.placeOrder}</h1>
+  <input
+    className="Form_general_info"
+    name="fullName"
+    placeholder={text.fullName}
+    ref={register({
+      required: true
+    })}
+  />
+  <input
+    className="Form_general_info"
+    type="tel"
+    placeholder={text.phoneNumber}
+    name="mobileNumber"
+    ref={register({
+      required: true,
+      minLength: 9,
+      maxLength: 13,
+      pattern: /^[0]\d{1,2}-?\d{3}-?\d{4}$/,
+    })}
+  />
+  {errors.mobileNumber && <span>Enter a valid phone number</span>}
+  <Course
+    radioName="firstCourse"
+    courseTitle={text.firstCourse.title}
+    firstOption={text.firstCourse.firstOption}
+    secondOption={text.firstCourse.secondOption}
+    thirdOption={text.firstCourse.thirdOption}
+    register={register}
+  />
+  <Course
+    radioName="secondCourse"
+    courseTitle={text.mainCourse.title}
+    firstOption={text.mainCourse.firstOption}
+    secondOption={text.mainCourse.secondOption}
+    thirdOption={text.mainCourse.thirdOption}
+    register={register}
+  />
+  <Course
+    radioName="thirdCourse"
+    courseTitle={text.dessert.title}
+    firstOption={text.dessert.firstOption}
+    secondOption={text.dessert.secondOption}
+    register={register}
+  />
 
-      <input className="input-submit" type="submit" />
-    </form>
-  );
+  <input className="input-submit" type="submit" />
+</form> );
 }
+ 
+export default Form;
