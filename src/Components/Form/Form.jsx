@@ -78,7 +78,6 @@ const Form = () => {
     secondOption={text.dessert.secondOption}
     register={register}
   />
-
   <input className="input-submit" type="submit" />
 </form> );
 }

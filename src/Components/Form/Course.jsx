@@ -9,8 +9,6 @@ const Course = ({
   register
 }) => {
 
-    const onSubmit = (data) => console.log(data);
-
   return (
     <div className="Form_menu_item">
       <label className="Form_menu_label">
