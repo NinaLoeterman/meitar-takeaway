@@ -2,13 +2,18 @@
     direction: rtl;
 }
 
-form {
+.Form_wrapper {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 95%;
     margin: auto;
     height: 100vh;
     justify-content: center;
+}
+@media (min-width: 600px) {
+    .Form_wrapper {
+        width: 50%;
+    }
 }
 
 .Form_general_info {
