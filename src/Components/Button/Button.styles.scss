@@ -1,0 +1,14 @@
+@import '../../root.scss';
+
+
+.Button {
+    background: $primary-gradient;
+    color: $primary-color;
+    height: 60px;
+    // width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 2rem;
+    margin: 20px;
+}

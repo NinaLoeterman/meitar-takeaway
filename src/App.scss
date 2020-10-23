@@ -34,13 +34,24 @@ html {
   animation: bounce infinite 1.5s ease-in-out;
 }
 @keyframes bounce {
-  0% {transform: translateY(0);} 
-  50% {transform: translateY(-20px);} 
-  0% {transform: translateY(0);} 
-} 
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  0% {
+    transform: translateY(0);
+  }
+}
 
 // @keyframes bounce {
 //   0% {margin-bottom: 0px;}
 //   50% {margin-bottom: 20px;}
 //   100% {margin-bottom: 0px;}
 // }
+
+.button_wrapper {
+  display: flex;
+  justify-content: center;
+}
