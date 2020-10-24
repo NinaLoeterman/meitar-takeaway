@@ -35,11 +35,8 @@ const Form = () => {
 
   return (
     <form className="Form_wrapper" onSubmit={handleSubmit(onSubmit)}>
-      <h1 data-aos="fade-up" className="form-title">
-        {text.placeOrder}
-      </h1>
+      <h1 className="form-title">{text.placeOrder}</h1>
       <input
-        data-aos="fade-up"
         data-aos-delay="100"
         className="Form_general_info"
         name="fullName"
@@ -49,7 +46,6 @@ const Form = () => {
         })}
       />
       <input
-        data-aos="fade-up"
         className="Form_general_info"
         type="tel"
         placeholder={text.phoneNumber}
@@ -62,7 +58,7 @@ const Form = () => {
         })}
       />
       {errors.mobileNumber && <span>Enter a valid phone number</span>}
-      <div data-aos="fade-up">
+      <div>
         <Course
           radioName="firstCourse"
           courseTitle={text.firstCourse.title}
@@ -73,7 +69,7 @@ const Form = () => {
         />
       </div>
 
-      <div data-aos="fade-up">
+      <div>
         <Course
           radioName="secondCourse"
           courseTitle={text.mainCourse.title}
@@ -83,7 +79,7 @@ const Form = () => {
           register={register}
         />
       </div>
-      <div data-aos="fade-up">
+      <div>
         <Course
           radioName="thirdCourse"
           courseTitle={text.dessert.title}
@@ -92,11 +88,7 @@ const Form = () => {
           register={register}
         />
       </div>
-      <input
-        data-aos="fade-up"
-        className="input-submit"
-        type="submit"
-      />
+      <input className="input-submit" type="submit" />
     </form>
   );
 };

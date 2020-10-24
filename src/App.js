@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
-import MdArrowDropdown from "react-ionicons/lib/MdArrowDropdown";
 import Form from "./Components/Form/Form.jsx";
 import Button from "./Components/Button/Button.jsx";
-// import { Collapse } from "react-collapse";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Collapse } from "@material-ui/core";
-import Grow from "@material-ui/core/Grow";
+import MeitarTakeaway from "./Components/MeitarTakeaway/MeitarTakeaway.jsx";
+
+const text = {
+  chose: "בחרו הרכב",
+};
 
 const item1 = {
   duo: "הגר ויונתן",
@@ -19,14 +20,9 @@ const item2 = {
 };
 
 function App() {
-  const [itemOpacity, setItemOpacity] = useState(1);
+  const [isTitleOpen, setIsTitleOpen] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
-  const disapear = () => {
-    setIsScrolled(true);
-    setItemOpacity(0);
-  };
 
   const toggleForm = () => {
     console.log("hello");
@@ -34,39 +30,41 @@ function App() {
   };
 
   useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  });
+      setTimeout(() => {
+        setIsTitleOpen(false);
+        setIsScrolled(true)
+      }, 3000);
+  }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", disapear);
-  }, []);
-  console.log(isOpen);
+    AOS.init();
+    AOS.refresh();
+  }); 
+
   return (
-    <>
-      <div onScroll={disapear} className="landing">
-        {isScrolled && (
-          <div className="main_wrapper">
-            <div data-aos="fade-up" className="button_wrapper">
+    <div className="landing">
+      {isScrolled && (
+        <div data-aos="fade-up" data-aos-duration="1000" className="main_wrapper">
+          <div className="button_wrapper">
+            <div className="chose_title">{text.chose}</div>
+            <div>
               <Button onClick={toggleForm} item={item1} />
               <Button onClick={toggleForm} item={item2} />
             </div>
-            {isOpen && (
-              <div className="form-wrapper">
-                <Form />
-              </div>
-            )}
           </div>
-        )}
-
-        <MdArrowDropdown
-          style={{ opacity: itemOpacity, transition: "opacity 1s" }}
-          className="scrollDown"
-          fontSize={"130px"}
-          color="white"
-        />
-      </div>
-    </>
+          {isOpen && (
+            <div data-aos="fade-up" data-aos-duration="1000" className="form-wrapper">
+              <Form />
+            </div>
+          )}
+        </div>
+      )}
+      {isTitleOpen && (
+        <div className="meitar_title_wrapper">
+          <MeitarTakeaway />
+        </div>
+      )}
+    </div>
   );
 }
 

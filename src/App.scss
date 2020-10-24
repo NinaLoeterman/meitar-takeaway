@@ -1,3 +1,5 @@
+@import "./root.scss";
+
 html {
   background: url("./Pics/mobileTakeAway.jpeg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -9,11 +11,7 @@ html {
 .landing {
   display: flex;
   justify-content: center;
-  // align-items: flex-end;
-  height: 110vh;
-  // opacity: 1;
-  // opacity: var(--headerOpacity);
-  // transform: scale(var(--headerScale));
+  height: 100vh;
 }
 
 .form-wrapper {
@@ -31,32 +29,10 @@ html {
   }
 }
 
-.scrollDown {
-  position: fixed;
-  bottom: 5%;
-  animation: bounce infinite 1.5s ease-in-out;
-}
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  0% {
-    transform: translateY(0);
-  }
-}
-
-// @keyframes bounce {
-//   0% {margin-bottom: 0px;}
-//   50% {margin-bottom: 20px;}
-//   100% {margin-bottom: 0px;}
-// }
-
 .button_wrapper {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   padding-top: 50%;
 }
 
@@ -64,3 +40,30 @@ html {
   display: flex;
   flex-direction: column;
 }
+
+.chose_title {
+  color: $primary-color;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.meitar_title_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  -webkit-animation: arrowInOut 8s linear forwards;
+  animation: arrowInOut 8s linear forwards;
+}
+
+@-webkit-keyframes arrowInOut {
+  0%,100% {opacity: 0;}
+  30%, 80% {opacity: 1;}
+ }
+
+ @keyframes arrowInOut {
+  0%,100% {opacity: 0;}
+  30%, 100% {opacity: 1;}
+  }
+ 
