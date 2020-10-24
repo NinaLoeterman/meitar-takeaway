@@ -26,10 +26,6 @@ function App() {
   const disapear = () => {
     setIsScrolled(true);
     setItemOpacity(0);
-    // const newOpacity =
-    //   (document.body.offsetHeight - window.scrollY * 4) /
-    //   document.body.offsetHeight;
-    // setItemOpacity(newOpacity.toFixed(2));
   };
 
   const toggleForm = () => {
@@ -64,7 +60,7 @@ function App() {
         )}
 
         <MdArrowDropdown
-          style={{ opacity: itemOpacity }}
+          style={{ opacity: itemOpacity, transition: "opacity 1s" }}
           className="scrollDown"
           fontSize={"130px"}
           color="white"
