@@ -3,36 +3,66 @@ import "./App.scss";
 import MdArrowDropdown from "react-ionicons/lib/MdArrowDropdown";
 import Form from "./Components/Form/Form.jsx";
 import Button from "./Components/Button/Button.jsx";
-import { Collapse } from "react-collapse";
+// import { Collapse } from "react-collapse";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Collapse } from "@material-ui/core";
+import Grow from "@material-ui/core/Grow";
 
-const text = {
-  item1: "הגר(חליל) ויונתן(קלרינט)",
-  item2: "רעות(סופרן) ונדב(בסון)",
+const item1 = {
+  duo: "הגר ויונתן",
+  instruments: "חליל וקלרינט",
+};
+const item2 = {
+  duo: "רעות ונדב",
+  instruments: "סופרן ובסון",
 };
 
 function App() {
   const [itemOpacity, setItemOpacity] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const disapear = () => {
-    const newOpacity =
-      (document.body.offsetHeight - window.scrollY * 4) /
-      document.body.offsetHeight;
-    setItemOpacity(newOpacity.toFixed(2));
+    setIsScrolled(true);
+    setItemOpacity(0);
+    // const newOpacity =
+    //   (document.body.offsetHeight - window.scrollY * 4) /
+    //   document.body.offsetHeight;
+    // setItemOpacity(newOpacity.toFixed(2));
   };
 
   const toggleForm = () => {
-    console.log('hello')
-    setIsOpen(true)
-  }
+    console.log("hello");
+    setIsOpen(true);
+  };
+
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  });
 
   useEffect(() => {
     window.addEventListener("scroll", disapear);
   }, []);
-  console.log(isOpen)
+  console.log(isOpen);
   return (
     <>
       <div onScroll={disapear} className="landing">
+        {isScrolled && (
+          <div className="main_wrapper">
+            <div data-aos="fade-up" className="button_wrapper">
+              <Button onClick={toggleForm} item={item1} />
+              <Button onClick={toggleForm} item={item2} />
+            </div>
+            {isOpen && (
+              <div className="form-wrapper">
+                <Form />
+              </div>
+            )}
+          </div>
+        )}
+
         <MdArrowDropdown
           style={{ opacity: itemOpacity }}
           className="scrollDown"
@@ -40,15 +70,6 @@ function App() {
           color="white"
         />
       </div>
-      <div className="button_wrapper">
-        <Button onClick={toggleForm} text={text.item1} />
-        <Button onClick={toggleForm} text={text.item2} />
-      </div>
-      <Collapse isOpened={isOpen}>
-        <div className="form-wrapper">
-          <Form />
-        </div>
-      </Collapse>
     </>
   );
 }

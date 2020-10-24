@@ -30,13 +30,17 @@ const text = {
 const Form = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => {
-    postFormData(data)
+    postFormData(data);
   };
 
   return (
     <form className="Form_wrapper" onSubmit={handleSubmit(onSubmit)}>
-      <h1 className="form-title">{text.placeOrder}</h1>
+      <h1 data-aos="fade-up" className="form-title">
+        {text.placeOrder}
+      </h1>
       <input
+        data-aos="fade-up"
+        data-aos-delay="100"
         className="Form_general_info"
         name="fullName"
         placeholder={text.fullName}
@@ -45,6 +49,7 @@ const Form = () => {
         })}
       />
       <input
+        data-aos="fade-up"
         className="Form_general_info"
         type="tel"
         placeholder={text.phoneNumber}
@@ -57,30 +62,41 @@ const Form = () => {
         })}
       />
       {errors.mobileNumber && <span>Enter a valid phone number</span>}
-      <Course
-        radioName="firstCourse"
-        courseTitle={text.firstCourse.title}
-        firstOption={text.firstCourse.firstOption}
-        secondOption={text.firstCourse.secondOption}
-        thirdOption={text.firstCourse.thirdOption}
-        register={register}
+      <div data-aos="fade-up">
+        <Course
+          radioName="firstCourse"
+          courseTitle={text.firstCourse.title}
+          firstOption={text.firstCourse.firstOption}
+          secondOption={text.firstCourse.secondOption}
+          thirdOption={text.firstCourse.thirdOption}
+          register={register}
+        />
+      </div>
+
+      <div data-aos="fade-up">
+        <Course
+          radioName="secondCourse"
+          courseTitle={text.mainCourse.title}
+          firstOption={text.mainCourse.firstOption}
+          secondOption={text.mainCourse.secondOption}
+          thirdOption={text.mainCourse.thirdOption}
+          register={register}
+        />
+      </div>
+      <div data-aos="fade-up">
+        <Course
+          radioName="thirdCourse"
+          courseTitle={text.dessert.title}
+          firstOption={text.dessert.firstOption}
+          secondOption={text.dessert.secondOption}
+          register={register}
+        />
+      </div>
+      <input
+        data-aos="fade-up"
+        className="input-submit"
+        type="submit"
       />
-      <Course
-        radioName="secondCourse"
-        courseTitle={text.mainCourse.title}
-        firstOption={text.mainCourse.firstOption}
-        secondOption={text.mainCourse.secondOption}
-        thirdOption={text.mainCourse.thirdOption}
-        register={register}
-      />
-      <Course
-        radioName="thirdCourse"
-        courseTitle={text.dessert.title}
-        firstOption={text.dessert.firstOption}
-        secondOption={text.dessert.secondOption}
-        register={register}
-      />
-      <input className="input-submit" type="submit" />
     </form>
   );
 };
