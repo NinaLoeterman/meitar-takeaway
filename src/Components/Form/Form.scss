@@ -33,7 +33,6 @@
     outline: none;
 }
 .Form_menu_item {
-    height: 100px;
     width: 100%;
     display: flex;
     margin-bottom: 16px;
@@ -44,7 +43,7 @@
     background-color: white;
     display: flex;
     align-items: center;
-    height: 100px;
+    // height: 100px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -56,7 +55,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 100px;
+    // height: 100px;
     background-color: white;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -65,4 +64,6 @@
 .Form_item_title {
     padding: 8px;
     width: 60px;
+    display: flex;
+    justify-content: center
 }
