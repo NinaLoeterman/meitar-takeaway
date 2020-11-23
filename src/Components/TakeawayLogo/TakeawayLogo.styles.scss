@@ -2,6 +2,7 @@
 
 .TakeawayLogo_title_wrapper {
   color: $palette-accent2;
+  margin: 10px
 }
 .TakeawayLogo_title{
   font-size: 3rem;
@@ -16,4 +17,11 @@
 }
 .secondary {
   color: $palette-accent1;
+}
+
+.secondary > .TakeawayLogo_title{
+  font-size: 2rem;
+}
+.secondary > .TakeawayLogo_subTitle{
+  font-size: 1.5rem;
 }

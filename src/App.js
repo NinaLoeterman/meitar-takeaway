@@ -2,7 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import "./App.scss";
 import Form from "./Components/Form/Form.jsx";
 import Button from "./Components/Button/Button.jsx";
-import FormCard from './Components/FormCard/FormCard.jsx'
+import FormCard from './Components/FormCard/FormCard.jsx';
+import Navbar from './Components/Navbar/Navbar.jsx';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import TakeawayLogo from "./Components/TakeawayLogo/TakeawayLogo.jsx";
@@ -43,7 +44,7 @@ function App() {
           data-aos-duration="1000"
           className="main_wrapper"
         >
-          <TakeawayLogo type={"secondary"} />
+          <Navbar />
           <FormCard title={"im a title"}>
             <div>im a child</div>
           </FormCard>

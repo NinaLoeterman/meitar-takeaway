@@ -2,6 +2,8 @@
 
 .FormCard {
     background-color: $palette-secondary;
+    border-radius: $card-radius;
+    margin: 10px;
 }
 .FormCard_title {
     margin: 40px;
