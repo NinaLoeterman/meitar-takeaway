@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import "./App.scss";
 import Form from "./Components/Form/Form.jsx";
 import Button from "./Components/Button/Button.jsx";
+import FormCard from './Components/FormCard/FormCard.jsx'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import TakeawayLogo from "./Components/TakeawayLogo/TakeawayLogo.jsx";
@@ -43,6 +44,9 @@ function App() {
           className="main_wrapper"
         >
           <TakeawayLogo type={"secondary"} />
+          <FormCard title={"im a title"}>
+            <div>im a child</div>
+          </FormCard>
 
           {/* <div className="button_wrapper">
             <div className="chose_title">{text.chose}</div>
