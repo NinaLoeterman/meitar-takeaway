@@ -1,0 +1,20 @@
+@import "../../root.scss";
+
+.TakeawayLogo_title_wrapper {
+  color: $palette-accent2;
+}
+.TakeawayLogo_title{
+  font-size: 3rem;
+  line-height: .4;
+  font-family: $font-main;
+}
+.TakeawayLogo_subTitle{
+  font-size: 2rem;
+  font-family: $font-secondary;
+}
+.primary {
+  color: $palette-accent2;
+}
+.secondary {
+  color: $palette-accent1;
+}
